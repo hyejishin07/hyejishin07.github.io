@@ -18,6 +18,7 @@
 
       <nav class="site-nav" aria-label="Primary">
         <a href="#home">Home</a>
+        <a href="#editor">Editor</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
@@ -37,34 +38,107 @@
         </p>
       </section>
 
+      <section id="editor" class="section card editor-section">
+        <div class="section-label">Editor</div>
+        <h2>Page Editor</h2>
+        <p class="editor-intro">
+          Edit the portfolio content directly on the page. Changes are saved in this browser, and uploaded
+          images or files are stored as local data so the site can remain static on GitHub Pages.
+        </p>
+
+        <form id="content-editor" class="editor-form">
+          <fieldset class="editor-fieldset">
+            <legend>About</legend>
+            <label for="about-text">Bio text</label>
+            <textarea id="about-text" data-content-text="about" rows="5"></textarea>
+
+            <label for="about-images">Images</label>
+            <input id="about-images" data-content-files="about" data-content-kind="images" type="file" accept="image/*" multiple>
+            <div class="asset-list" data-asset-list="about-images"></div>
+          </fieldset>
+
+          <fieldset class="editor-fieldset">
+            <legend>Projects</legend>
+            <label for="projects-text">Project text</label>
+            <textarea id="projects-text" data-content-text="projects" rows="5"></textarea>
+
+            <label for="projects-files">Attachments</label>
+            <input id="projects-files" data-content-files="projects" data-content-kind="attachments" type="file" multiple>
+            <div class="asset-list" data-asset-list="projects-attachments"></div>
+          </fieldset>
+
+          <fieldset class="editor-fieldset">
+            <legend>Experience</legend>
+            <label for="experience-text">Experience text</label>
+            <textarea id="experience-text" data-content-text="experience" rows="5"></textarea>
+
+            <label for="experience-files">Attachments</label>
+            <input id="experience-files" data-content-files="experience" data-content-kind="attachments" type="file" multiple>
+            <div class="asset-list" data-asset-list="experience-attachments"></div>
+          </fieldset>
+
+          <fieldset class="editor-fieldset">
+            <legend>Research</legend>
+            <label for="research-text">Research text</label>
+            <textarea id="research-text" data-content-text="research" rows="5"></textarea>
+
+            <label for="research-files">Attachments</label>
+            <input id="research-files" data-content-files="research" data-content-kind="attachments" type="file" multiple>
+            <div class="asset-list" data-asset-list="research-attachments"></div>
+          </fieldset>
+
+          <fieldset class="editor-fieldset">
+            <legend>Contact</legend>
+            <label for="contact-text">Contact text</label>
+            <textarea id="contact-text" data-content-text="contact" rows="4"></textarea>
+            <p class="editor-note">Contact only supports text edits. No images or attachments are shown here.</p>
+          </fieldset>
+
+          <div class="editor-actions">
+            <button type="button" id="editor-reset">Reset defaults</button>
+            <p id="editor-status" class="editor-status" aria-live="polite">Ready to edit.</p>
+          </div>
+        </form>
+      </section>
+
       <section id="about" class="section card">
         <div class="section-label">About</div>
         <h2>About</h2>
-        <p>[사람 확인 필요] Add your short bio, interests, and professional summary here.</p>
+        <div class="section-copy" data-render="about">
+          <p>[사람 확인 필요] Add your short bio, interests, and professional summary here.</p>
+        </div>
       </section>
 
       <section id="projects" class="section card">
         <div class="section-label">Projects</div>
         <h2>Projects</h2>
-        <p>[사람 확인 필요] Add selected projects, outcomes, and links here.</p>
+        <div class="section-copy" data-render="projects">
+          <p>[사람 확인 필요] Add selected projects, outcomes, and links here.</p>
+        </div>
       </section>
 
       <section id="experience" class="section card">
         <div class="section-label">Experience</div>
         <h2>Experience</h2>
-        <p>[사람 확인 필요] Add roles, dates, and measurable impact here.</p>
+        <div class="section-copy" data-render="experience">
+          <p>[사람 확인 필요] Add roles, dates, and measurable impact here.</p>
+        </div>
       </section>
 
       <section id="research" class="section card">
         <div class="section-label">Research</div>
         <h2>Research</h2>
-        <p>[사람 확인 필요] Add experiments, notes, or learning records here.</p>
+        <div class="section-copy" data-render="research">
+          <p>[사람 확인 필요] Add experiments, notes, or learning records here.</p>
+        </div>
       </section>
 
       <section id="contact" class="section card">
         <div class="section-label">Contact</div>
         <h2>Contact</h2>
-        <p>[사람 확인 필요] Add email, GitHub, LinkedIn, or other contact links here.</p>
+        <div class="section-copy" data-render="contact">
+          <p>[사람 확인 필요] Add email, GitHub, LinkedIn, or other contact links here.</p>
+        </div>
       </section>
 
       <section id="games" class="section card games-section">
@@ -128,7 +202,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>© <span id="year"></span> Your Name</p>
+      <p>&copy; <span id="year"></span> Your Name</p>
     </footer>
 
     <script src="script.js"></script>

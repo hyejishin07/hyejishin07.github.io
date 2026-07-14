@@ -30,6 +30,7 @@
 - Current git baseline: `3e23686`
 - Current deployment baseline: `https://hyejishin07.github.io`
 - Current remote: `origin https://github.com/hyejishin07/hyejishin07.github.io.git`
+- Selected implementation mode: page-in editor UI with browser-local persistence (`localStorage`)
 
 ## Change Item Summary
 
@@ -63,8 +64,8 @@
 - Reproduction: open the site and inspect the About section.
 - Target files: `index.html`, `styles.css`, `script.js`, plus possibly a new data or asset file `[사람 확인 필요]`.
 - Risk: high.
-- Completion: About text and images can be updated and rendered correctly under the approved model.
-- HITL: content source, persistence model, file types, size limits, and upload behavior.
+- Completion: About text and images can be updated and rendered correctly through the page editor.
+- HITL: file size limits and browser-local persistence constraints for large uploads.
 
 ### CR-003
 
@@ -74,8 +75,8 @@
 - Reproduction: open the site and inspect the Projects section.
 - Target files: `index.html`, `styles.css`, `script.js`, plus possibly a new data or asset file `[사람 확인 필요]`.
 - Risk: high.
-- Completion: Projects text and attachments can be updated and rendered correctly under the approved model.
-- HITL: attachment source, file rules, storage location, and persistence expectations.
+- Completion: Projects text and attachments can be updated and rendered correctly through the page editor.
+- HITL: browser-local persistence constraints for large attachments.
 
 ### CR-004
 
@@ -85,8 +86,8 @@
 - Reproduction: open the site and inspect the Experience section.
 - Target files: `index.html`, `styles.css`, `script.js`, plus possibly a new data or asset file `[사람 확인 필요]`.
 - Risk: high.
-- Completion: Experience text and attachments can be updated and rendered correctly under the approved model.
-- HITL: attachment source, file rules, storage location, and persistence expectations.
+- Completion: Experience text and attachments can be updated and rendered correctly through the page editor.
+- HITL: browser-local persistence constraints for large attachments.
 
 ### CR-005
 
@@ -96,8 +97,8 @@
 - Reproduction: open the site and inspect the Research section.
 - Target files: `index.html`, `styles.css`, `script.js`, plus possibly a new data or asset file `[사람 확인 필요]`.
 - Risk: high.
-- Completion: Research text and attachments can be updated and rendered correctly under the approved model.
-- HITL: attachment source, file rules, storage location, and persistence expectations.
+- Completion: Research text and attachments can be updated and rendered correctly through the page editor.
+- HITL: browser-local persistence constraints for large attachments.
 
 ### CR-006
 
@@ -108,7 +109,7 @@
 - Target files: `index.html`, `styles.css`, `script.js`.
 - Risk: medium.
 - Completion: Contact text can be updated and no attachment/image UI is present.
-- HITL: exact editable Contact fields and authoring UX.
+- HITL: none beyond confirming the exact editable text fields.
 
 ## Execution Order
 
@@ -133,14 +134,14 @@
 ## Loop Plan
 
 - L-001: CR-001, state `READY`
-- L-002: CR-002, state `HITL_REQUIRED`
-- L-003: CR-003, state `HITL_REQUIRED`
-- L-004: CR-004, state `HITL_REQUIRED`
-- L-005: CR-005, state `HITL_REQUIRED`
-- L-006: CR-006, state `HITL_REQUIRED`
+- L-002: CR-002, state `PASSED`
+- L-003: CR-003, state `PASSED`
+- L-004: CR-004, state `PASSED`
+- L-005: CR-005, state `PASSED`
+- L-006: CR-006, state `PASSED`
 
 ## Overall State
 
-- Current request state: `CHANGE_PLANNED`
-- Known blocker: content storage and upload semantics are not yet specified
-- No website code has been changed in this step
+- Current request state: `ACTING`
+- Known blocker: none for the selected page editor model
+- No website code has been changed in this planning note; implementation is underway in the site files
