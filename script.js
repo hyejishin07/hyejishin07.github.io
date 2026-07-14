@@ -126,7 +126,7 @@
       return;
     }
 
-    const size = Math.max(280, Math.floor(Math.min(rect.width, 560)));
+    const size = Math.max(1, Math.floor(rect.width));
     const dpr = window.devicePixelRatio || 1;
 
     state.boardSize = size;
@@ -134,8 +134,8 @@
 
     canvas.width = Math.floor(size * dpr);
     canvas.height = Math.floor(size * dpr);
-    canvas.style.width = `${size}px`;
-    canvas.style.height = `${size}px`;
+    canvas.style.width = "";
+    canvas.style.height = "";
     canvas.getContext("2d")?.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     draw();

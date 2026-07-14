@@ -287,3 +287,86 @@
 
 ### 사람 확인 필요 항목
 - 
+## Change Request Intake
+
+- Last normal deploy commit: `3e23686`
+- Last normal deploy URL: `https://hyejishin07.github.io`
+- New Change Request ID: `CRQ-20260714-01`
+- Request state: `CHANGE_PLANNED`
+- Current overall blocker: content storage and upload semantics are not yet specified
+
+### Change Items
+
+- CR-001: fix the snake game grid so it fills the full board
+- CR-002: make About user-editable and support image uploads
+- CR-003: make Projects user-editable and support attachments
+- CR-004: make Experience user-editable and support attachments
+- CR-005: make Research user-editable and support attachments
+- CR-006: make Contact text-editable only, with no attachments or images
+
+### User Request Summary
+
+- One clear game rendering bug must be fixed.
+- Four content sections need direct user-editing capabilities.
+- About needs image uploads.
+- Projects, Experience, and Research need attachments.
+- Contact must remain text-only with no uploads or images.
+
+### Reference Materials
+
+- Attached request text file
+- Current repository files
+- Current git baseline `3e23686`
+- Current deployment URL `https://hyejishin07.github.io`
+- Existing planning docs `AORR.md` and this `MEMORY.md`
+
+### New Acceptance Criteria
+
+- Grid fills the entire game board.
+- About can be edited and images can be added.
+- Projects, Experience, and Research can be edited and can include attachments.
+- Contact can be edited without attachments or images.
+- Existing layout, navigation, and Snake controls do not regress.
+
+### Loop Execution Order
+
+1. CR-001
+2. CR-002
+3. CR-003
+4. CR-004
+5. CR-005
+6. CR-006
+
+### Next Step 9 Loop
+
+- First executable loop: `CR-001`
+- Reason: it is the clearest, lowest-risk bug fix and can be validated independently.
+
+### Rollback Criteria
+
+- Revert only the files touched by the active loop if the fix introduces console errors, layout regressions, or gameplay regressions.
+- Stop and seek confirmation if the content-editing model would require backend services, unapproved storage, or unclear persistence rules.
+
+### HITL Items
+
+- Content source for About, Projects, Experience, Research, and Contact
+- Upload and attachment persistence model for a static GitHub Pages site
+- Allowed file types and size limits
+- Whether editing should happen inline, in a separate authoring UI, or by source-file editing
+
+### Tool Policy Reminder
+
+- Codex handles task control, file updates, and verification.
+- Use Claude Code CLI as an independent verifier only if it is actually available in the environment.
+- Record the actual Claude model name if it is used.
+- Do not print or persist token values in logs, code, or commits.
+
+## Change Request Execution Log
+
+- Loop ID: `CR-001`
+- Status: `PASSED`
+- Modified files: `script.js`
+- Verifier: PowerShell static server + HTTP 200 checks
+- Test result: `index.html`, `styles.css`, and `script.js` all returned HTTP 200 from local server
+- Notes: `node` CLI was not available in this environment, so JS syntax was validated by code review and local file serving only
+- Next loop: `CR-002` remains `HITL_REQUIRED`

@@ -440,3 +440,106 @@ fingerprint는 같은 실패를 다시 식별할 수 있어야 한다.
 - `RETRYING`: 하나의 원인을 수정한 뒤 같은 Verifier를 다시 돌린다.
 - `HITL_REQUIRED`: 이름, 소개, 경력, 프로젝트, 게임 추가 기능, 배포 설정처럼 사람 판단이 필요한 정보가 남았다.
 - `BLOCKED`: 환경/권한 제약으로 더 이상 자동 진행이 불가하다.
+## Change Request Loop Plan
+
+- Change Request ID: `CRQ-20260714-01`
+- Request state: `CHANGE_PLANNED`
+- Baseline commit: `3e23686`
+- Baseline URL: `https://hyejishin07.github.io`
+
+### Loop CR-001
+
+| Field | Value |
+|---|---|
+| Connected Change Item | CR-001 |
+| Target | Make the snake game grid fill the entire board |
+| Act | Inspect the board rendering path and fix the minimal rendering bug |
+| Observe | Grid coverage, console errors, board sizing, existing controls |
+| Reason | `BUG`, `GAME_EFFECT` |
+| Verifier | Local static server plus browser visual check |
+| Repeat | One cause per retry, max 3 retries |
+| Stop | Passed, repeated fingerprint, or HITL need |
+| HITL | Only if board size or visual density is unclear |
+| State | `READY` |
+
+### Loop CR-002
+
+| Field | Value |
+|---|---|
+| Connected Change Item | CR-002 |
+| Target | Define and implement About editing with image uploads |
+| Act | Choose the static editing and persistence model before implementation |
+| Observe | Whether text and images can persist on GitHub Pages |
+| Reason | `CONTENT`, `NEW_FEATURE` |
+| Verifier | Local static server, browser check, GitHub Pages compatibility review |
+| Repeat | One cause per retry, max 3 retries |
+| Stop | Passed, repeated fingerprint, or HITL need |
+| HITL | Content source, persistence model, file types, and size limits |
+| State | `HITL_REQUIRED` |
+
+### Loop CR-003
+
+| Field | Value |
+|---|---|
+| Connected Change Item | CR-003 |
+| Target | Define and implement Projects editing with attachments |
+| Act | Add Projects-specific fields and attachment behavior |
+| Observe | Editable content, attachment rendering, and layout regression |
+| Reason | `CONTENT`, `NEW_FEATURE` |
+| Verifier | Local static server and browser UI verification |
+| Repeat | One cause per retry, max 3 retries |
+| Stop | Passed, repeated fingerprint, or HITL need |
+| HITL | Attachment source, file rules, persistence expectations |
+| State | `HITL_REQUIRED` |
+
+### Loop CR-004
+
+| Field | Value |
+|---|---|
+| Connected Change Item | CR-004 |
+| Target | Define and implement Experience editing with attachments |
+| Act | Add Experience-specific fields and attachment behavior |
+| Observe | Editable content, attachment rendering, and layout regression |
+| Reason | `CONTENT`, `NEW_FEATURE` |
+| Verifier | Local static server and browser UI verification |
+| Repeat | One cause per retry, max 3 retries |
+| Stop | Passed, repeated fingerprint, or HITL need |
+| HITL | Attachment source, file rules, persistence expectations |
+| State | `HITL_REQUIRED` |
+
+### Loop CR-005
+
+| Field | Value |
+|---|---|
+| Connected Change Item | CR-005 |
+| Target | Define and implement Research editing with attachments |
+| Act | Add Research-specific fields and attachment behavior |
+| Observe | Editable content, attachment rendering, and layout regression |
+| Reason | `CONTENT`, `NEW_FEATURE` |
+| Verifier | Local static server and browser UI verification |
+| Repeat | One cause per retry, max 3 retries |
+| Stop | Passed, repeated fingerprint, or HITL need |
+| HITL | Attachment source, file rules, persistence expectations |
+| State | `HITL_REQUIRED` |
+
+### Loop CR-006
+
+| Field | Value |
+|---|---|
+| Connected Change Item | CR-006 |
+| Target | Define and implement Contact text-only editing |
+| Act | Add Contact text editing without upload controls |
+| Observe | Content editing works and media controls are absent |
+| Reason | `CONTENT`, `NEW_FEATURE` |
+| Verifier | Local static server and browser UI verification |
+| Repeat | One cause per retry, max 3 retries |
+| Stop | Passed, repeated fingerprint, or HITL need |
+| HITL | Exact editable Contact fields and authoring UX |
+| State | `HITL_REQUIRED` |
+
+### Execution Update
+
+- `CR-001` status: `PASSED`
+- Modified file: `script.js`
+- Local verification: `index.html`, `styles.css`, and `script.js` returned HTTP 200
+- Environment note: `node` CLI was unavailable for direct JS syntax checking
