@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="개인 프로페셔널 웹사이트와 지렁이 게임을 포함한 정적 포트폴리오 사이트">
+    <meta name="description" content="Static professional portfolio site with a Snake game on GitHub Pages.">
     <title>Professional Portfolio</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <a class="skip-link" href="#main">본문 바로가기</a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
       <div class="brand">
@@ -16,7 +16,7 @@
         <a class="brand-title" href="#home">Your Name</a>
       </div>
 
-      <nav class="site-nav" aria-label="주요 메뉴">
+      <nav class="site-nav" aria-label="Primary">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -30,62 +30,99 @@
     <main id="main">
       <section id="home" class="hero section">
         <div class="section-label">Home</div>
-        <h1>정적인 GitHub Pages 기반 프로페셔널 웹사이트</h1>
+        <h1>A static GitHub Pages portfolio</h1>
         <p>
-          모바일과 데스크톱에서 모두 읽기 쉬운 반응형 포트폴리오의 기본 골격입니다.
-          이 루프에서는 가장 안전한 뼈대만 먼저 세우고, 다음 루프에서 콘텐츠와 게임을 확장합니다.
+          A safe starting point for a responsive professional website.
+          The page keeps the portfolio structure simple and leaves room for the Snake game below.
         </p>
       </section>
 
       <section id="about" class="section card">
         <div class="section-label">About</div>
         <h2>About</h2>
-        <p>
-          여기에 소개, 경력, 관심사, 연락처 등 개인 프로필 콘텐츠를 단계적으로 채워 넣습니다.
-        </p>
+        <p>[사람 확인 필요] Add your short bio, interests, and professional summary here.</p>
       </section>
 
       <section id="projects" class="section card">
         <div class="section-label">Projects</div>
         <h2>Projects</h2>
-        <p>
-          프로젝트 목록과 핵심 성과를 추가할 공간입니다. 현재는 구조만 준비되어 있습니다.
-        </p>
+        <p>[사람 확인 필요] Add selected projects, outcomes, and links here.</p>
       </section>
 
       <section id="experience" class="section card">
         <div class="section-label">Experience</div>
         <h2>Experience</h2>
-        <p>
-          경력과 역할 설명을 넣는 영역입니다. 실제 회사명, 기간, 성과는 [사람 확인 필요]입니다.
-        </p>
+        <p>[사람 확인 필요] Add roles, dates, and measurable impact here.</p>
       </section>
 
       <section id="research" class="section card">
         <div class="section-label">Research</div>
         <h2>Research</h2>
-        <p>
-          연구, 실험, 학습 기록을 정리하는 공간입니다. 세부 항목은 [사람 확인 필요]입니다.
-        </p>
+        <p>[사람 확인 필요] Add experiments, notes, or learning records here.</p>
       </section>
 
       <section id="contact" class="section card">
         <div class="section-label">Contact</div>
         <h2>Contact</h2>
-        <p>
-          이메일, 링크드인, 깃허브 등 연결 정보를 배치할 영역입니다. 실제 연락처는 [사람 확인 필요]입니다.
-        </p>
+        <p>[사람 확인 필요] Add email, GitHub, LinkedIn, or other contact links here.</p>
       </section>
 
       <section id="games" class="section card games-section">
         <div class="section-label">Games</div>
         <h2>Games</h2>
         <p>
-          지렁이 게임 영역입니다. 다음 루프에서 키보드와 모바일 터치 조작이 가능한 게임을 연결합니다.
+          Play the Snake game here. It supports keyboard controls, mobile touch buttons, and swipe gestures.
+          The game is initialized once and does not duplicate when the tab is reopened.
         </p>
-        <div class="games-panel" role="group" aria-label="게임 영역">
-          <p class="games-status">Game area ready</p>
-          <p class="games-help">현재는 기본 진입점만 제공하며, 게임 로직은 아직 추가하지 않았습니다.</p>
+
+        <div class="game-shell" data-snake-game>
+          <div class="game-hud" aria-label="Game stats">
+            <div class="hud-item">
+              <span>Score</span>
+              <strong id="game-score">0</strong>
+            </div>
+            <div class="hud-item">
+              <span>Best</span>
+              <strong id="game-best">0</strong>
+            </div>
+            <div class="hud-item">
+              <span>Status</span>
+              <strong id="game-status">Ready</strong>
+            </div>
+          </div>
+
+          <div class="game-stage">
+            <canvas
+              id="snake-canvas"
+              width="480"
+              height="480"
+              aria-label="Snake game board"
+              role="img"
+            ></canvas>
+            <div class="game-overlay is-visible" id="game-overlay" aria-live="polite">
+              Press Start to begin.
+            </div>
+          </div>
+
+          <div class="game-actions" aria-label="Game actions">
+            <button type="button" id="game-start">Start</button>
+            <button type="button" id="game-pause">Pause</button>
+            <button type="button" id="game-restart">Restart</button>
+          </div>
+
+          <div class="touch-controls" aria-label="Mobile direction controls">
+            <button type="button" class="touch-control up" data-direction="up" aria-label="Move up">↑</button>
+            <div class="touch-row">
+              <button type="button" class="touch-control left" data-direction="left" aria-label="Move left">←</button>
+              <button type="button" class="touch-control down" data-direction="down" aria-label="Move down">↓</button>
+              <button type="button" class="touch-control right" data-direction="right" aria-label="Move right">→</button>
+            </div>
+          </div>
+
+          <p class="games-help">
+            Desktop controls: Arrow keys or WASD. Mobile controls: touch buttons or swipe on the board.
+            Reverse-direction turns are blocked to keep the game fair.
+          </p>
         </div>
       </section>
     </main>
