@@ -44,13 +44,13 @@
 
 | 항목 | 값 |
 |---|---|
-| 현재 상태 | `PASSED` |
+| 현재 상태 | `DEPLOYED` |
 | 완료한 루프 | 정적 사이트 기본 구조 생성 1회, 프로페셔널 섹션 구조 확장 1회 |
 | 다음 루프 | `Games` 영역 구체화 또는 지렁이 게임 핵심 로직 |
 | 현재 Retry 횟수 | 0 |
 | 현재 오류 fingerprint | 없음 |
 | Blocker | 없음 |
-| 마지막 정상 상태 | `index.html`, `styles.css`, `script.js` 기본 연결 및 HTTP 200 확인 |
+| 마지막 정상 상태 | GitHub Pages에서 `https://hyejishin07.github.io` HTTP 200 확인 |
 
 ## Guardrails
 
@@ -219,6 +219,12 @@
 ### 사람 확인 필요 항목
 - 프로필 이름, 소개, 경력, 프로젝트의 실제 내용
 - Claude Code CLI 및 Sonnet 모델 사용 가능 여부
+
+## Deployment Log
+
+- 배포 대상: `hyejishin07.github.io`
+- 결과: `DEPLOYED`
+- 확인: `https://hyejishin07.github.io` HTTP 200
 
 ### 사람 확인 필요 항목
 - 프로필 이름, 소개, 경력, 프로젝트의 실제 내용
