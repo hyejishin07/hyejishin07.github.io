@@ -45,12 +45,12 @@
 | 항목 | 값 |
 |---|---|
 | 현재 상태 | `DEPLOYED` |
-| 완료한 루프 | 정적 사이트 기본 구조 생성 1회, 프로페셔널 섹션 구조 확장 1회 |
+| 완료한 루프 | 정적 사이트 기본 구조 생성 1회, 프로페셔널 섹션 구조 확장 1회, Snake 게임 루프 1회 |
 | 다음 루프 | `Games` 영역 구체화 또는 지렁이 게임 핵심 로직 |
 | 현재 Retry 횟수 | 0 |
 | 현재 오류 fingerprint | 없음 |
 | Blocker | 없음 |
-| 마지막 정상 상태 | GitHub Pages에서 `https://hyejishin07.github.io` HTTP 200 확인 |
+| 마지막 정상 상태 | GitHub Pages에서 `https://hyejishin07.github.io` HTTP 200 확인, Snake 게임 HTML 골격 확인 |
 
 ## Guardrails
 
@@ -225,6 +225,17 @@
 - 배포 대상: `hyejishin07.github.io`
 - 결과: `DEPLOYED`
 - 확인: `https://hyejishin07.github.io` HTTP 200
+
+## Snake Loop Log
+
+- 루프 ID: `loop-3-snake-game`
+- 목표: Games 탭에 Snake 게임 UI와 핵심 로직 추가
+- 시작 상태: `DEPLOYED`
+- 주요 변경: `index.html`, `styles.css`, `script.js`
+- 검증: 로컬 정적 서버 HTML 덤프 및 정적 코드 점검
+- 배포: `abd7dae`
+- 결과: `DEPLOYED`
+- 사람 확인 필요 항목: 실제 브라우저 상호작용, 개인 프로필 콘텐츠, Claude Code CLI/Sonnet 모델 확인
 
 ### 사람 확인 필요 항목
 - 프로필 이름, 소개, 경력, 프로젝트의 실제 내용
